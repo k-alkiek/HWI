@@ -20,5 +20,10 @@
   <%= @review.user_id %>
 </p>
 
+<p>
+  <strong>Item:</strong>
+  <%= @review.item_id %>
+</p>
+
 <%= link_to 'Edit', edit_review_path(@review) %> |
 <%= link_to 'Back', reviews_path %>

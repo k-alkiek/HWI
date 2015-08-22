@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
-  resources :comments
-
   resources :reviews
+
+  resources :comments
 
   devise_for :users
   resources :admins
