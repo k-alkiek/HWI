@@ -2,7 +2,7 @@
 -Edited the Db to add user_id to both comments and reviews"Remember to remove your db and use rake db:migrate"
 
 Tasks:
-1-Finish ER Diagram, generate all needed tables.
+1-Finish ER Diagram, generate all needed tables.(Done)
 2-configure devise
 3-configure paperclip
 
