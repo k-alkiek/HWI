@@ -21,10 +21,21 @@ class CommentsController < ApplicationController
   end
 
   def create
-    @comment = Comment.new(comment_params)
-    @comment.save
-    respond_with(@comment)
+    @review = Review.find(params[:review_id])
+    @comment = @review.comments.create(comment_params)
+
+    respond_to do |format|
+      if @comment.save
+        format.html { redirect_to @review, notice: 'Comment was successfully created.' }
+        format.json { render :show, status: :created, location: @comment }
+        format.js #create.js.erb
+      else
+        format.html { render :new }
+        format.json { render json: @comment.errors, status: :unprocessable_entity }
+      end
+    end
   end
+
 
   def update
     @comment.update(comment_params)
