@@ -1,5 +1,5 @@
 Tasks:
-1-Finish ER Diagram, generate all needed tables.
+1-Finish ER Diagram, generate all needed tables.(Done)
 2-configure devise
 3-configure paperclip
 
