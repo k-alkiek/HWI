@@ -18,7 +18,7 @@ class CommentsControllerTest < ActionController::TestCase
 
   test "should create comment" do
     assert_difference('Comment.count') do
-      post :create, comment: { User_id: @comment.User_id, body: @comment.body, reviews_id: @comment.reviews_id }
+      post :create, comment: { body: @comment.body, review_id: @comment.review_id, user_id: @comment.user_id }
     end
 
     assert_redirected_to comment_path(assigns(:comment))
@@ -35,7 +35,7 @@ class CommentsControllerTest < ActionController::TestCase
   end
 
   test "should update comment" do
-    patch :update, id: @comment, comment: { User_id: @comment.User_id, body: @comment.body, reviews_id: @comment.reviews_id }
+    patch :update, id: @comment, comment: { body: @comment.body, review_id: @comment.review_id, user_id: @comment.user_id }
     assert_redirected_to comment_path(assigns(:comment))
   end
 
