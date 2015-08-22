@@ -10,7 +10,11 @@ Rails.application.routes.draw do
 
   resources :reviews
 
-  resources :items
+  resources :items do
+    resources :reviews do
+      resources :comments
+    end
+  end
 
   resources :categories
 
