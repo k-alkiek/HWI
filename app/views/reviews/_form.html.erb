@@ -12,14 +12,6 @@
   <% end %>
 
   <div class="field">
-    <%= f.label :User_id %><br>
-    <%= f.number_field :User_id %>
-  </div>
-  <div class="field">
-    <%= f.label :Item_id %><br>
-    <%= f.number_field :Item_id %>
-  </div>
-  <div class="field">
     <%= f.label :title %><br>
     <%= f.text_field :title %>
   </div>
@@ -30,6 +22,10 @@
   <div class="field">
     <%= f.label :rating %><br>
     <%= f.number_field :rating %>
+  </div>
+  <div class="field">
+    <%= f.label :user_id %><br>
+    <%= f.number_field :user_id %>
   </div>
   <div class="actions">
     <%= f.submit %>
