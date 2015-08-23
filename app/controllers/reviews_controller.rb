@@ -10,8 +10,8 @@ class ReviewsController < ApplicationController
   end
 
   def show
+    @user = User.all
     respond_with(@review)
-    respond_with(@user)
   end
 
   def new
