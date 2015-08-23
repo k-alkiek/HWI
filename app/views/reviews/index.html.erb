@@ -5,16 +5,20 @@
     <% @reviews.each do |review| %>
     <div>
       <hr>
+      <h3>
+        <strong>
         <%= review.title %>
-        <br/>
+         <p> About:  <%= review.item_id %> </p>
+    </strong>
+      </h3>
+        <strong>
         <%= review.body %>
+    </strong>
         <br/>
-        <%= review.rating %>
+        
+            Rate:<%= review.rating %>
         <br/>
-        <%= @user[review.user_id].email %>
-        <br/>
-        <%= review.item_id %>
-        <br/>
+        Written By:<%= @user[review.user_id].email %>
         <%= link_to 'Show', review %>
         <%= link_to 'Edit', edit_review_path(review) %>
         <%= link_to 'Destroy', review, method: :delete, data: { confirm: 'Are you sure?' } %>

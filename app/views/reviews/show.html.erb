@@ -1,12 +1,13 @@
 <p id="notice"><%= notice %></p>
 
-<p>
-  <strong>Title:</strong>
-  <%= @review.title %>
-</p>
+      <h3>
+        <strong>
+        <%= @review.title %>
+         <p> About: <%= @review.item_id %> </p>
+    </strong>
+      </h3>
 
 <p>
-  <strong>Body:</strong>
   <%= @review.body %>
 </p>
 
@@ -16,14 +17,10 @@
 </p>
 
 <p>
-  <strong>User:</strong>
+  <strong>Written by:</strong>
   <%= @user[@review.user_id].email %>
 </p>
 
-<p>
-  <strong>Item:</strong>
-  <%= @review.item_id %>
-</p>
 
 <%= link_to 'Edit', edit_review_path(@review) %> |
 <%= link_to 'Back', reviews_path %>
