@@ -5,11 +5,13 @@ class ReviewsController < ApplicationController
 
   def index
     @reviews = Review.all
+    @user = User.all
     respond_with(@reviews)
   end
 
   def show
     respond_with(@review)
+    respond_with(@user)
   end
 
   def new
