@@ -5,10 +5,12 @@ class ItemsController < ApplicationController
 
   def index
     @items = Item.all
+    @categories = Category.all
     respond_with(@items)
   end
 
   def show
+    @categories = Category.all
     respond_with(@item)
   end
 
