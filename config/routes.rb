@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
-  resources :categories
+  resources :categories do
+    resources :items
+  end
 
   resources :reviews
 
@@ -21,7 +23,6 @@ Rails.application.routes.draw do
     end
   
 
-  resources :categories
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
