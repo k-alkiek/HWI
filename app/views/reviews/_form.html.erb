@@ -23,10 +23,7 @@
     <%= f.label :rating %><br>
     <%= f.number_field :rating %>
   </div>
-  <div class="field">
-    <%= f.label :user_id %><br>
-    <%= f.number_field :user_id %>
-  </div>
+<%= @review.user_id = current_user.id %>
   <div class="field">
     <%= f.label :item_id %><br>
     <%= f.number_field :item_id %>
