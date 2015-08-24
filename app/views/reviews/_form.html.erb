@@ -1,3 +1,6 @@
+<p hidden >
+<%= @review.user_id = current_user.id %>
+</p>
 <%= form_for(@review) do |f| %>
   <% if @review.errors.any? %>
     <div id="error_explanation">
@@ -23,7 +26,10 @@
     <%= f.label :rating %><br>
     <%= f.number_field :rating %>
   </div>
-<%= @review.user_id = current_user.id %>
+  <div class="field" hidden>
+    <%= f.label :user_id %><br>
+    <%= f.number_field :user_id %>
+  </div>
   <div class="field">
     <%= f.label :item_id %><br>
     <%= f.number_field :item_id %>
