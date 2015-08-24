@@ -18,7 +18,7 @@
 
 <p>
   <strong>Written by:</strong>
-  <%= @user[@review.user_id].email %>
+<%= User.find(@review.user_id).email %>
 </p>
 
 
