@@ -31,10 +31,14 @@
     <%= f.text_field :user_id, required: true, class: 'form-control'%>
     <% end %>
   </div>
-  <div class="field">
-    <%= f.label :item_id %><br>
-    <%= f.number_field :item_id %>
-  </div>
+
+  <!-- <div class="field"> -->
+    <!-- <%= f.label :item_id %><br> -->
+    <!-- <%= f.number_field :item_id %> -->
+  <!-- </div> -->
+
+ <%= f.collection_select :item_id, Item.order(:name),:id,:name, include_blank: true %>
+
   <div class="actions">
     <%= f.submit %>
   </div>

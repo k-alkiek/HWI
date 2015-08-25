@@ -8,7 +8,7 @@
       <h3>
         <strong>
         <%= review.title %>
-         <p> About:  <%= review.item_id %> </p>
+         <p> About:  <%= Item.find(review.item_id).name %> </p>
     </strong>
       </h3>
         <strong>

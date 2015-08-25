@@ -23,13 +23,12 @@ class ReviewsController < ApplicationController
   end
 
   def create
-    @item = Item.find(params[:item_id])
-    @review = @item.reviews.create(review_params)
+    @review = Review.create(review_params)
     
 
      respond_to do |format|
       if @review.save
-        format.html { redirect_to @item, notice: 'Review was successfully created.' }
+        format.html { redirect_to @review, notice: 'Review was successfully created.' }
         format.json { render :show, status: :created, location: @review }
         format.js #create.js.erb
       else
