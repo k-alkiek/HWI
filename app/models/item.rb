@@ -1,4 +1,4 @@
 class Item < ActiveRecord::Base
-	has_many :reviews
-	belongs_to :category , dependent: :destroy
+	has_many :reviews, dependent: :destroy
+	belongs_to :category
 end

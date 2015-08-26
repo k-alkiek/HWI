@@ -1,0 +1,12 @@
+ <!--<% @review.comments.reverse.each do |comment| %> -->
+      <%= div_for comment do %>
+      <p>
+        by <%= @review.user.email %>
+        <br/>
+        <strong> Posted <%= time_ago_in_words(comment.created_at) %> </strong>
+        <br/>
+        <%= h(comment.body) %>
+      </p>
+      <hr/>
+    <%end%>
+  <!-- <%end%> -->

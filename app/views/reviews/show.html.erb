@@ -18,29 +18,22 @@
 
 <p>
   <strong>Written by:</strong>
-<%= User.find(@review.user_id).email %>
+<%= @review.user.email %>
 </p>
 
 
 <%= link_to 'Edit', edit_review_path(@review) %> |
 <%= link_to 'Back', reviews_path %>
-
-<h2> Comments </h2>
-  <div id="comments">
-    <% @review.comments.each do |comment| %>
-      <%= div_for comment do %>
-      <p>
-        <strong> Posted <%= time_ago_in_words(comment.created_at) %> </strong>
-        <br/>
-        <%= h(comment.body) %>
-      </p>
-    <%end%>
-  <%end%>
-</div>
-
+ 
 <%= form_for [@review, Comment.new], remote: true do |f| %>
 <p><%= f.label :body, "New Comment" %><br/>
 <%= f.text_area :body %>
 </p>
 <p><%= f.submit "Add Comment" %></p>
 <% end %>
+
+
+<h2>Comments</h2>
+<div id="comments">
+  <%= render :partial => @review.comments.reverse %>
+</div>
