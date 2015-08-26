@@ -35,7 +35,7 @@ ActiveRecord::Schema.define(version: 20150824142632) do
   end
 
   create_table "items", force: true do |t|
-    t.integer  "Category_id"
+    t.integer  "category_id"
     t.string   "name"
     t.text     "description"
     t.datetime "created_at"

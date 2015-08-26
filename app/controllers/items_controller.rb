@@ -5,12 +5,10 @@ class ItemsController < ApplicationController
 
   def index
     @items = Item.all
-    @categories = Category.all
     respond_with(@items)
   end
 
   def show
-    @categories = Category.all
     respond_with(@item)
   end
 
@@ -44,6 +42,6 @@ class ItemsController < ApplicationController
     end
 
     def item_params
-      params.require(:item).permit(:Category_id, :name, :description)
+      params.require(:item).permit(:category_id, :name, :description)
     end
 end

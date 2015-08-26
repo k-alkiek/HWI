@@ -5,12 +5,10 @@ class ReviewsController < ApplicationController
 
   def index
     @reviews = Review.all
-    @user = User.all
     respond_with(@reviews)
   end
 
   def show
-    @user = User.all
     respond_with(@review)
   end
 
@@ -23,22 +21,25 @@ class ReviewsController < ApplicationController
   end
 
   def create
-     @item = Item.find(params[:item_id])
-    @review = @item.reviews.create(review_params)
-    @review = Review.create(review_params)
-    
-
-     respond_to do |format|
-      if @review.save
-        format.html { redirect_to @item, notice: 'Review was successfully created.' }
-        format.json { render :show, status: :created, location: @review }
-        format.js #create.js.erb
-      else
-        format.html { render :new }
-        format.json { render json: @review.errors, status: :unprocessable_entity }
-      end
-    end
-  end
+    @review = Review.new(review_params)
+    @review.save
+    respond_with(@review)
+  
+  # REVIEW FORM CODE
+  #  @review = Review.create(review_params)
+  #  
+  #  
+  #   respond_to do |format|
+  #    if @review.save
+  #      format.html { redirect_to @item, notice: 'Review was successfully created.' }
+  #      format.json { render :show, status: :created, location: @review }
+  #      format.js #create.js.erb
+  #    else
+  #      format.html { render :new }
+  #      format.json { render json: @review.errors, status: :unprocessable_entity }
+  #    end
+  #  end
+   end
 
   def update
     @review.update(review_params)

@@ -2,7 +2,7 @@
 
 <p>
   <strong>Category:</strong>
-  <%= Category.find(@item.Category_id).name %>
+  <%= @item.category.name %>
 </p>
 
 <p>
@@ -18,7 +18,9 @@
 <%= link_to 'Edit', edit_item_path(@item) %> |
 <%= link_to 'Back', items_path %>
 
-<h2> Reviews </h2>
+
+<!-- REVIEW FORM CODE
+<h2> Reviews </h2> 
   <div id="reviews">
     <% @item.reviews.each do |review| %>
       <%= div_for review do %>
@@ -36,4 +38,5 @@
 <%= f.text_area :body %>
 </p>
 <p><%= f.submit "Add Review" %></p>
-<% end %>
+<% end %>  
+-->

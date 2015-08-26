@@ -8,7 +8,7 @@
       <h3>
         <strong>
         <%= review.title %>
-         <p> About:  <%= Item.find(review.item_id).name %> </p>
+         <p> About:  <%= review.item.name %> </p>
     </strong>
       </h3>
         <strong>
@@ -18,7 +18,7 @@
         
             Rate:<%= review.rating %>
         <br/>
-        Written By:<%= User.find(review.user_id).email %>
+        Written By:<%= review.user.email %>
         <%= link_to review.title, review %>
         <%= link_to 'Edit', edit_review_path(review) %>
         <%= link_to 'Destroy', review, method: :delete, data: { confirm: 'Are you sure?' } %>
