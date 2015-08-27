@@ -8,11 +8,19 @@ Rails.application.routes.draw do
   resources :comments
 
   devise_for :users
+
+devise_scope :user do
+  authenticated :user do
+    root 'items#index', as: :authenticated_root
+  end
+
+  unauthenticated do
+    root 'devise/sessions#new', as: :unauthenticated_root
+  end
+end
   resources :admins
 
-  resources :comments
-
-  resources :reviews
+  
 
   resources :items do
     resources :reviews
@@ -28,7 +36,7 @@ Rails.application.routes.draw do
   # See how all your routes lay out with "rake routes".
 
   # You can have the root of your site routed with "root"
-  # root 'welcome#index'
+
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
