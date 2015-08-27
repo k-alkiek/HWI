@@ -32,7 +32,8 @@ end
       resources :comments
     end
 
-    get 'search' => 'item#search', as: :search
+    get 'search' => 'items#search', as: :search
+    get 'start' => 'items#start', as: :start
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

@@ -8,4 +8,7 @@ class Item < ActiveRecord::Base
         'undefined'
     end
 end
+ def self.search(query)
+    where("name like ?", "%#{query}%") 
+  end
 end

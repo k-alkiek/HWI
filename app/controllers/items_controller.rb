@@ -7,11 +7,18 @@ class ItemsController < ApplicationController
     @items = Item.all
     respond_with(@items)
   end
+  def start
+  end
 
   def show
     respond_with(@item)
   end
   def search
+    if params[:search]
+      @items = Item.search(params[:search]).order("created_at DESC")
+    else
+      @items = Item.order("created_at DESC")
+    end
   end
 
   def new

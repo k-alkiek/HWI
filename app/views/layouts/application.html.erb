@@ -69,7 +69,7 @@
 
 
   <ul>
-          <li><a href="#">Home</a></li>
+          <li><%= link_to 'Home', items_path %></li>
           <li><a href="#">About</a></li>
           <li>
               <%= link_to 'Categories', categories_path %>
@@ -83,7 +83,7 @@
           </li>
           <li><%= link_to 'Items', items_path %></li>
           <li><%= link_to 'Reviews', reviews_path %></li>
-          <li><%= link_to 'Search for Item', search_items_path %></li>
+          <li><%= link_to 'Search for Item', start_path %></li>
   </ul>
 
 </div>
