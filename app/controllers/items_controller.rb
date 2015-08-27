@@ -11,6 +11,8 @@ class ItemsController < ApplicationController
   def show
     respond_with(@item)
   end
+  def search
+  end
 
   def new
     @item = Item.new
@@ -18,6 +20,10 @@ class ItemsController < ApplicationController
   end
 
   def edit
+  end
+    def NReview
+    @review =Review.new
+    respond_with(@review)
   end
 
   def create
@@ -40,6 +46,7 @@ class ItemsController < ApplicationController
     def set_item
       @item = Item.find(params[:id])
     end
+
 
     def item_params
       params.require(:item).permit(:category_id, :name, :description)

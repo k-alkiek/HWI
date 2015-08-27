@@ -1,0 +1,12 @@
+      <%= div_for review do %>
+      <p>
+        by <%= review.user.email %>
+        <br/>
+        <strong> Posted <%= time_ago_in_words(review.created_at) %> </strong>
+        <br/>
+        <h3> <%= h(review.title) %> </h3>
+        <%= h(review.body) %> <br/>
+        Rating :<%= h(review.rating) %>
+      </p>
+      <hr/>
+    <%end%>

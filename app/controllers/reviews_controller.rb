@@ -19,27 +19,21 @@ class ReviewsController < ApplicationController
 
   def edit
   end
-
   def create
-    @review = Review.new(review_params)
-    @review.save
-    respond_with(@review)
-  
-  # REVIEW FORM CODE
-  #  @review = Review.create(review_params)
-  #  
-  #  
-  #   respond_to do |format|
-  #    if @review.save
-  #      format.html { redirect_to @item, notice: 'Review was successfully created.' }
-  #      format.json { render :show, status: :created, location: @review }
-  #      format.js #create.js.erb
-  #    else
-  #      format.html { render :new }
-  #      format.json { render json: @review.errors, status: :unprocessable_entity }
-  #    end
-  #  end
-   end
+    @item= Item.find(params[:item_id])
+    @review= @item.reviews.create(review_params)
+
+    respond_to do |format|
+      if @review.save
+        format.html { redirect_to @item, notice: 'Review was successfully created.' }
+        format.json { render :show, status: :created, location: @review}
+        format.js
+      else
+        format.html { render :new }
+        format.json { render json: @review.errors, status: :unprocessable_entity }
+      end
+    end
+  end
 
   def update
     @review.update(review_params)

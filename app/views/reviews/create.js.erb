@@ -1,0 +1,4 @@
+var new_review = $("<%= escape_javascript(render(:partial => @review))%>").hide();
+$('#reviews').prepend(new_review);
+$('#review_<%= @review.id %>').fadeIn('slow');
+$('#new_review')[0].reset();

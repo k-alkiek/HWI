@@ -1,5 +1,4 @@
 <p id="notice"><%= notice %></p>
-
 <p>
   <strong>Category:</strong>
   <%= @item.category.name %>
@@ -14,29 +13,41 @@
   <strong>Description:</strong>
   <%= @item.description %>
 </p>
+<p>
+  <strong>Average Rating: </strong>
+  <%= @item.average_rating %>
+</p>
 
 <%= link_to 'Edit', edit_item_path(@item) %> |
 <%= link_to 'Back', items_path %>
 
-
-<!-- REVIEW FORM CODE
-<h2> Reviews </h2> 
-  <div id="reviews">
-    <% @item.reviews.each do |review| %>
-      <%= div_for review do %>
-      <p>
-        <strong> Posted <%= time_ago_in_words(review.created_at) %> </strong>
-        <br/>
-        <%= h(review.body) %>
-      </p>
-    <%end%>
-  <%end%>
+<h3> Write a Review </h3> 
+<%= form_for [@item, Review.new], remote: true do |f| %>
+<p><%= f.label :title, "Title" %><br/>
+<%= f.text_field :title %>
+<p><%= f.label :body, "Body" %><br/>
+<%= f.text_area :body %>
+<p><%= f.label :rating, "Rating" %><br/>
+<%= f.number_field :rating %>
+</p>
+  <div class="field" hidden>
+  <% if user_signed_in? %>
+    <%= f.text_field :user_id, required: true, class: 'form-control', value:current_user.id %>
+    <% else %>
+    <%= f.text_field :user_id, required: true, class: 'form-control'%>
+    <% end %>
+  </div>
+  <div class="field" hidden>
+  <% if user_signed_in? %>
+    <%= f.text_field :item_id, required: true, class: 'form-control', value:@item.id %>
+    <% else %>
+    <%= f.text_field :item_id, required: true, class: 'form-control'%>
+    <% end %>
+  </div>
+<p><%= f.submit "Add Review" %></p>
+<% end %>
+<h2>Reviews</h2>
+<div id="reviews">
+  <%= render :partial => @item.reviews.reverse %>
 </div>
 
-<%= form_for [@item, Review.new], remote: true do |f| %>
-<p><%= f.label :body, "New Review" %><br/>
-<%= f.text_area :body %>
-</p>
-<p><%= f.submit "Add Review" %></p>
-<% end %>  
--->

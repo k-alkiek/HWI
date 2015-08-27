@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  resources :likes
+
   resources :categories do
     resources :items
   end
@@ -29,8 +31,8 @@ end
     resources :reviews do
       resources :comments
     end
-  
 
+    get 'search' => 'item#search', as: :search
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

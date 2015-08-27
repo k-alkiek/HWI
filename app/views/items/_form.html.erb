@@ -11,13 +11,6 @@
     </div>
   <% end %>
 
-
-  <!-- <div class="field"> -->
-    <!-- <%= f.label :category_id %><br> -->
-    <!-- <%= f.number_field :category_id %> -->
-  <!-- </div> -->
-
-<!-- Combo box for selecting categories -->
  <%= f.collection_select :category_id, Category.order(:name),:id,:name, include_blank: true %>
 
   <div class="field">
