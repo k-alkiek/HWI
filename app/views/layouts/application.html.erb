@@ -8,10 +8,87 @@
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
+
+
+
+<style type="text/css">
+    ul{
+        padding: 0;
+        list-style: none;
+        background: #f2f2f2;
+    }
+    ul li{
+        display: inline-block;
+        position: relative;
+        line-height: 21px;
+        text-align: left;
+    }
+    ul li a{
+        display: block;
+        padding: 8px 25px;
+        color: #333;
+        text-decoration: none;
+    }
+    ul li a:hover{
+        color: #fff;
+        background: #939393;
+    }
+    ul li ul.dropdown{
+        min-width: 125px; /* Set width of the dropdown */
+        background: #f2f2f2;
+        display: none;
+        position: absolute;
+        z-index: 999;
+        left: 0;
+    }
+    ul li:hover ul.dropdown{
+        display: block; /* Display the dropdown */
+    }
+    ul li ul.dropdown li{
+        display: block;
+    }
+</style>
+
+
+
+
+
 </head>
 
 <body>
+
+
+
+
+
+
+
+
+
+<div class="dropmenu">
+
+
+  <ul>
+          <li><a href="#">Home</a></li>
+          <li><a href="#">About</a></li>
+          <li>
+              <%= link_to 'Categories', categories_path %>
+              <ul class="dropdown">
+                
+                <% @categories.each do |category| %>
+                  <li><%= link_to category.name, category %></li>
+                <% end %>
+
+              </ul>
+          </li>
+          <li><%= link_to 'Items', items_path %></li>
+          <li><%= link_to 'Reviews', reviews_path %></li>
+  </ul>
+
+</div>
+
  <body bgcolor="#E6E6FA">
+
 	<p class="navbar-text pull-right"  style="margin-left: 1000px ; margin-bottom: 50px ;">
 <% if user_signed_in? %>
    <strong><%= current_user.email %></strong>.
@@ -29,6 +106,8 @@
 <% if user_signed_in? %>
  <%= link_to "Sign out", destroy_user_session_path, method: :delete, :class => 'navbar-link'  %>
 <% end %>
+
 <%= yield %>
+
 </body>
 </html>

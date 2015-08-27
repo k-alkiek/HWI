@@ -19,7 +19,7 @@
             Rate:<%= review.rating %>
         <br/>
         Written By:<%= review.user.email %>
-        <%= link_to "Show" review %>
+        <%= link_to "Show", review %>
         <%= link_to 'Edit', edit_review_path(review) %>
         <%= link_to 'Destroy', review, method: :delete, data: { confirm: 'Are you sure?' } %>
     </div>
