@@ -17,7 +17,11 @@
 </p>
 
 <br/>
-
-<%= link_to 'Edit', edit_comment_path(@comment) %> |
+        <% if current_user.email == @comment.user.email %>
+        <%= link_to 'Edit', edit_comment_path(comment) %>
+        <%= link_to 'Destroy', comment, method: :delete, data: { confirm: 'Are you sure?' } %>
+        <% else%>
+        <% end %>
+|
 <%= link_to 'Back', comments_path %>
 
