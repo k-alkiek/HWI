@@ -1,10 +1,15 @@
       <%= div_for comment do %>
       <p>
-        by <%= @review.user.email %>
+        by <%= comment.user.email %>
         <br/>
         <strong> Posted <%= time_ago_in_words(comment.created_at) %> </strong>
         <br/>
         <%= h(comment.body) %>
+                <% if current_user.email == comment.user.email %>
+        <%= link_to 'Edit', edit_comment_path(comment) %>
+        <%= link_to 'Destroy', comment, method: :delete, data: { confirm: 'Are you sure?' } %>
+        <% else%>
+        <% end %>
       </p>
       <hr/>
     <%end%>

@@ -6,7 +6,14 @@
         <br/>
         <h3> <%= h(review.title) %> </h3>
         <%= h(review.body) %> <br/>
-        Rating :<%= h(review.rating) %>
+        Rating :<%= h(review.rating) %>  <br/>
+        <%= link_to "Show", review %>
+        <%= link_to "Write a Comment", review %>
+        <% if current_user.email == review.user.email %>
+        <%= link_to 'Edit', edit_review_path(review) %>
+        <%= link_to 'Destroy', review, method: :delete, data: { confirm: 'Are you sure?' } %>
+        <% else%>
+        <% end %>
       </p>
       <hr/>
     <%end%>

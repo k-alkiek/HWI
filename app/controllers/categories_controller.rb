@@ -9,6 +9,7 @@ class CategoriesController < ApplicationController
   end
 
   def show
+    
     respond_with(@category)
   end
 

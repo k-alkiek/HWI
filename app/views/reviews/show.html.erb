@@ -1,3 +1,4 @@
+<h1><font size="2"> </h1>
 <p id="notice"><%= notice %></p>
 
       <h3>
@@ -26,9 +27,23 @@
 <%= link_to 'Back', reviews_path %>
  
 <%= form_for [@review, Comment.new], remote: true do |f| %>
+  <div class="field" hidden>
+  <% if user_signed_in? %>
+    <%= f.text_field :review_id, required: true, class: 'form-control', value:@review.id %>
+    <% else %>
+    <%= f.text_field :review_id, required: true, class: 'form-control'%>
+    <% end %>
+  </div>
 <p><%= f.label :body, "New Comment" %><br/>
 <%= f.text_area :body %>
 </p>
+ <div class="field" hidden>
+  <% if user_signed_in? %>
+    <%= f.text_field :user_id, required: true, class: 'form-control', value:current_user.id %>
+    <% else %>
+    <%= f.text_field :user_id, required: true, class: 'form-control'%>
+    <% end %>
+  </div>
 <p><%= f.submit "Add Comment" %></p>
 <% end %>
 

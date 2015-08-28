@@ -18,6 +18,7 @@ class ReviewsController < ApplicationController
   end
 
   def edit
+    
   end
   def create
     @item= Item.find(params[:item_id])
