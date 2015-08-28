@@ -27,6 +27,7 @@ class ItemsController < ApplicationController
   end
 
   def edit
+  
   end
     def NReview
     @review =Review.new

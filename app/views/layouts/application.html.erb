@@ -84,29 +84,32 @@
           <li><%= link_to 'Items', items_path %></li>
           <li><%= link_to 'Reviews', reviews_path %></li>
           <li><%= link_to 'Search for Item', start_path %></li>
-  </ul>
-
-</div>
-
- <body bgcolor="#E6E6FA">
-
-	<p class="navbar-text pull-right"  style="margin-left: 1000px ; margin-bottom: 50px ;">
-<% if user_signed_in? %>
-   <strong><%= current_user.email %></strong>.
+         <li style="margin-left: 200px;"><% if user_signed_in? %>
+   <li><strong><%= current_user.email %></strong>.</li>
   <%= link_to 'Edit profile', edit_user_registration_path, :class => 'navbar-link' %> |
 <% else %>
-  <%= link_to "Sign up", new_user_registration_path, :class => 'navbar-link'  %> |
-  <%= link_to "Login", new_user_session_path, :class => 'navbar-link'  %>
+<li> <%= link_to "Login", new_user_session_path, :class => 'navbar-link'  %><li>
+ <li> <%= link_to "Sign up", new_user_registration_path, :class => 'navbar-link'  %> </li>
 <% end %>
-	<% if notice %>
+<% if user_signed_in? %>
+ <%= link_to "Sign out", destroy_user_session_path, method: :delete, :class => 'navbar-link'  %>
+<% end %>
+ 
+</li>
+          
+
+
+  </ul>
+  <% if notice %>
   <p class="alert alert-success"><%= notice %></p>
 <% end %>
 <% if alert %>
   <p class="alert alert-danger"><%= alert %></p>
 <% end %>
-<% if user_signed_in? %>
- <%= link_to "Sign out", destroy_user_session_path, method: :delete, :class => 'navbar-link'  %>
-<% end %>
+
+</div>
+
+ <body bgcolor="#E6E6FA">
 
 <%= yield %>
 
