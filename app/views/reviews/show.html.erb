@@ -27,7 +27,6 @@
 <%= link_to 'Back', reviews_path %>
  
 <%= form_for [@review, Comment.new], remote: true do |f| %>
-<<<<<<< HEAD
   <div class="field" hidden>
   <% if user_signed_in? %>
     <%= f.text_field :review_id, required: true, class: 'form-control', value:@review.id %>
@@ -45,11 +44,6 @@
     <%= f.text_field :user_id, required: true, class: 'form-control'%>
     <% end %>
   </div>
-=======
-<p><%= f.label :body, "New Comment" %><br/>
-<%= f.text_area :body %>
-</p>
->>>>>>> 40353c009eaf812f5f53baaadcf0d767990838dc
 <p><%= f.submit "Add Comment" %></p>
 <% end %>
 
@@ -57,8 +51,4 @@
 <h2>Comments</h2>
 <div id="comments">
   <%= render :partial => @review.comments.reverse %>
-<<<<<<< HEAD
 </div>
-=======
-</div>
->>>>>>> 40353c009eaf812f5f53baaadcf0d767990838dc
