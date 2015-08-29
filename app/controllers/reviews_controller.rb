@@ -18,7 +18,11 @@ class ReviewsController < ApplicationController
   end
 
   def edit
+    if current_user.role == 1
+
+    else
       current_user.reviews.find(params[:id])
+    end
   end
 
   def create
@@ -43,9 +47,14 @@ class ReviewsController < ApplicationController
   end
 
   def destroy
-    @review = current_user.reviews.find(params[:id])
-    @review.destroy
-    respond_with(@review)
+    if current_user.role == 1
+      @review.destroy
+      respond_with(@review)
+    else
+      @review = current_user.reviews.find(params[:id])
+      @review.destroy
+      respond_with(@review)
+    end
   end
 
   private

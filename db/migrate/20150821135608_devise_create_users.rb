@@ -1,6 +1,10 @@
 class DeviseCreateUsers < ActiveRecord::Migration
   def change
     create_table(:users) do |t|
+
+      ## Roles:  1=admin, 2=moderator, 3=user
+      t.integer :role,              null: false, default: 3
+
       ## Database authenticatable
       t.string :email,              null: false, default: ""
       t.string :encrypted_password, null: false, default: ""

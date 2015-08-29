@@ -18,7 +18,11 @@ class CommentsController < ApplicationController
   end
 
   def edit
-    current_user.comments.find(params[:id])
+    if current_user.role == 1 || current_user.role == 2
+      
+    else
+      current_user.comments.find(params[:id])
+    end
   end
 
   def create
@@ -44,9 +48,14 @@ class CommentsController < ApplicationController
   end
 
   def destroy
-    @comment = current_user.comments.find(params[:id])
-    @comment.destroy
-    respond_with(@comment)
+    if current_user.role == 1 || current_user.role == 2
+      @comment.destroy
+      respond_with(@comment)
+    else
+      @comment = current_user.comments.find(params[:id])
+      @comment.destroy
+      respond_with(@comment)
+    end
   end
 
   private
