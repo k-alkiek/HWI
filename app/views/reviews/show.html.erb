@@ -22,10 +22,13 @@
 <%= @review.user.email %>
 </p>
 
-
-<%= link_to 'Edit', edit_review_path(@review) %> |
+<% if current_user.id == @review.user.id %>
+  <%= link_to 'Edit', edit_review_path(@review) %> |
+  <%= link_to 'Destroy', @review, method: :delete, data: { confirm: 'Are you sure?' } %> |
+<% else %>
+<% end %>
 <%= link_to 'Back', reviews_path %>
- 
+
 <%= form_for [@review, Comment.new], remote: true do |f| %>
   <div class="field" hidden>
   <% if user_signed_in? %>

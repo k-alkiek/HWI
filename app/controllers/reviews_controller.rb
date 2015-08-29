@@ -18,8 +18,9 @@ class ReviewsController < ApplicationController
   end
 
   def edit
-    
+      current_user.reviews.find(params[:id])
   end
+
   def create
     @item= Item.find(params[:item_id])
     @review= @item.reviews.create(review_params)
@@ -42,6 +43,7 @@ class ReviewsController < ApplicationController
   end
 
   def destroy
+    @review = current_user.reviews.find(params[:id])
     @review.destroy
     respond_with(@review)
   end

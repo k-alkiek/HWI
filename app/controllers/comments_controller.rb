@@ -18,6 +18,7 @@ class CommentsController < ApplicationController
   end
 
   def edit
+    current_user.comments.find(params[:id])
   end
 
   def create
@@ -43,6 +44,7 @@ class CommentsController < ApplicationController
   end
 
   def destroy
+    @comment = current_user.comments.find(params[:id])
     @comment.destroy
     respond_with(@comment)
   end
