@@ -34,6 +34,8 @@ end
 
     get 'search' => 'items#search', as: :search
     get 'start' => 'items#start', as: :start
+    get 'rate' => 'items#rate', as: :rate
+    get 'top' => 'items#top', as: :top
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

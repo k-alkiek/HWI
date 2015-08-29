@@ -1,0 +1,8 @@
+
+      <%= form_tag(top_path, :method => "get", class: "navbar-form", id: "top-form") do %>
+    <div class="input-append">
+      <%= text_field_tag :top, params[:top], class: "span2", placeholder: "Category name" %>
+      <br/>
+<button name="button">Search</button>
+    </div>
+    <%end%>

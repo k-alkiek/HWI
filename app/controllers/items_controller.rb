@@ -20,7 +20,16 @@ class ItemsController < ApplicationController
       @items = Item.order("created_at DESC")
     end
   end
-
+  def start2
+  end
+ def top
+    if params[:top]
+      @items = Item.top(params[:top]).order("created_at DESC")
+    else
+      @items = Item.order("created_at DESC")
+  end
+  @local_items = @items.sort_by(&:top_rating).reverse
+  end
   def new
     @item = Item.new
     respond_with(@item)

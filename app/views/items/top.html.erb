@@ -1,0 +1,12 @@
+<% @local_items.each do |item| %>
+  <div class="item">
+  	<h4>
+    <%= link_to item.name, item %>
+</h4>
+   <ul>
+    <li><%= item.description %></li><br/>
+    Rating:
+    <li> <%= item.average_rating %> </li>
+</ul>
+  </div>
+<% end %>

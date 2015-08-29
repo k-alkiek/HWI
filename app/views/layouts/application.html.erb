@@ -84,6 +84,7 @@
           <li><%= link_to 'Items', items_path %></li>
           <li><%= link_to 'Reviews', reviews_path %></li>
           <li><%= link_to 'Search for Item', start_path %></li>
+          <li><%= link_to 'Top Rated items', rate_path %></li>
          <li style="margin-left: 200px;"><% if user_signed_in? %>
    <li><strong><%= current_user.email %></strong>.</li>
   <%= link_to 'Edit profile', edit_user_registration_path, :class => 'navbar-link' %> |
