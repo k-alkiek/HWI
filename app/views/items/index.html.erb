@@ -18,6 +18,13 @@
         <td><%= item.description %></td>
         <td><%= link_to 'Show', item %></td>
         <td><%= link_to 'Write Review', item %></td>
+
+        <% if current_user.role == 1 %>
+        <td> <%= link_to 'Edit', edit_item_path(item) %></td>
+         <td> <%= link_to 'Destroy', item, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <% else %>
+        <% end %>
+
       </tr>
     <% end %>
   </tbody>
