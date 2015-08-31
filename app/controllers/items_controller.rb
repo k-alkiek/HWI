@@ -9,6 +9,9 @@ class ItemsController < ApplicationController
   end
   def start
   end
+  def home
+  end
+  
   def about
   end
   def show

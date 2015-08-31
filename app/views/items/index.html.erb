@@ -16,7 +16,8 @@
          <li> <%= link_to 'Destroy', item, method: :delete, data: { confirm: 'Are you sure?' } %></li>
         <% else %>
         <% end %>
-
+        <br/>
+</ul>
     <% end %>
 
 <br>
@@ -24,4 +25,3 @@
 <%= link_to 'New Item', new_item_path %>
         <% else %>
         <% end %>
-</ul>
