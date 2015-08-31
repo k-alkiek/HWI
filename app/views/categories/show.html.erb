@@ -1,6 +1,11 @@
 <h1><font size="2	"> </h1>
 <p id="notice"><%= notice %></p>
-
+<% if current_user.role == 1 %>
+   <td> <%= link_to 'New Item', new_item_path %></td> |
+<%= link_to 'Edit', edit_category_path(@category) %> |
+        <% else %>
+        <% end %>
+        <br/>
 <p style="font-size:35px;">
   <strong>Category:</strong>
   <%= @category.name %>
@@ -35,11 +40,7 @@
         <% end %>
 <% end %> <br/><br/>
     
-<% if current_user.role == 1 %>
-   <td> <%= link_to 'New Item', new_item_path %></td> |
-<%= link_to 'Edit', edit_category_path(@category) %> |
-        <% else %>
-        <% end %>
+
 
 
 <%= link_to 'Back', categories_path %>
