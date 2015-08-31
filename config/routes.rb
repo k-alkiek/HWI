@@ -26,7 +26,7 @@ devise_scope :user do
 
 
 end
-
+    get 'about' => 'items#about', as: :about
     get 'search' => 'items#search', as: :search
     get 'start' => 'items#start', as: :start
     get 'rate' => 'items#rate', as: :rate

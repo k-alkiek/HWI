@@ -1,35 +1,27 @@
 <h1><font size="3"> Items</h1>
 
-<table>
-  <thead>
-    <tr>
-      <th>Category</th>
-      <th>Name</th>
-      <th>Description</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
 
-  <tbody>
+
     <% @items.each do |item| %>
-      <tr>
-        <td><%= item.category.name %></td>
-        <td><%= item.name %></td>
-        <td><%= item.description %></td>
-        <td><%= link_to 'Show', item %></td>
-        <td><%= link_to 'Write Review', item %></td>
+   <ul>
+        <li><strong>Category:</strong><%= item.category.name %></li><br/>
+        <li><strong>Name:</strong><%= item.name %></li><br/>
+        <li><strong>Description:</strong><%= item.description %></li>
+        <br/>
+        <li><%= link_to 'Show', item %></li>
+        <li><%= link_to 'Write Review', item %></li>
 
         <% if current_user.role == 1 %>
-        <td> <%= link_to 'Edit', edit_item_path(item) %></td>
-         <td> <%= link_to 'Destroy', item, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <li> <%= link_to 'Edit', edit_item_path(item) %></li>
+         <li> <%= link_to 'Destroy', item, method: :delete, data: { confirm: 'Are you sure?' } %></li>
         <% else %>
         <% end %>
 
-      </tr>
     <% end %>
-  </tbody>
-</table>
 
 <br>
-
+<% if current_user.role == 1 %>
 <%= link_to 'New Item', new_item_path %>
+        <% else %>
+        <% end %>
+</ul>

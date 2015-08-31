@@ -9,7 +9,8 @@ class ItemsController < ApplicationController
   end
   def start
   end
-
+  def about
+  end
   def show
     respond_with(@item)
   end
