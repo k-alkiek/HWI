@@ -6,7 +6,9 @@
    <ul>
         <li><strong>Category:</strong><%= item.category.name %></li><br/>
         <li><strong>Name:</strong><%= item.name %></li><br/>
-        <li><strong>Description:</strong><%= item.description %></li>
+        <div style = "margin-left : 40px;">
+        <li><%= item.description %></li>
+    </div>
         <br/>
         <li><%= link_to 'Show', item %></li>
         <li><%= link_to 'Write Review', item %></li>
