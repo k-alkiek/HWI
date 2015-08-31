@@ -21,9 +21,12 @@
         Written By:<%= review.user.email %>
         <%= link_to "Show", review %>
         <%= link_to "Write a Comment", review %>
-
+        
+<%# if current_user.id == @review.user.id || current_user.role == 1 %>
         <%= link_to 'Edit', edit_review_path(review) %>
         <%= link_to 'Destroy', review, method: :delete, data: { confirm: 'Are you sure?' } %>
+<% #else %>
+<% #end %>
 
     </div>
     <% end %>

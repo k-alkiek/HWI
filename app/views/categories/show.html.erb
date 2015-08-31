@@ -5,6 +5,12 @@
   <strong>Name:</strong>
   <%= @category.name %>
 </p>
+
+<% if current_user.role == 1 %>
    <td> <%= link_to 'New Item', new_item_path %></td> |
 <%= link_to 'Edit', edit_category_path(@category) %> |
+        <% else %>
+        <% end %>
+
+
 <%= link_to 'Back', categories_path %>

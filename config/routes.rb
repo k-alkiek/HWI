@@ -1,13 +1,17 @@
 Rails.application.routes.draw do
-  resources :likes
+
 
   resources :categories do
     resources :items
   end
 
-  resources :reviews
+  resources :items do
+    resources :reviews
+  end
 
-  resources :comments
+  resources :reviews do
+    resources :comments
+  end
 
   devise_for :users
 
@@ -19,18 +23,9 @@ devise_scope :user do
   unauthenticated do
     root 'devise/sessions#new', as: :unauthenticated_root
   end
+
+
 end
-  resources :admins
-
-  
-
-  resources :items do
-    resources :reviews
-  end
-
-    resources :reviews do
-      resources :comments
-    end
 
     get 'search' => 'items#search', as: :search
     get 'start' => 'items#start', as: :start

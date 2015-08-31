@@ -69,7 +69,6 @@
 
   <ul>
           <li><%= link_to 'Home', items_path %></li>
-          <li><a href="#">About</a></li>
           <li>
               <%= link_to 'Categories', categories_path %>
               <ul class="dropdown">
@@ -81,7 +80,7 @@
               </ul>
           </li>
           <li><%= link_to 'Items', items_path %></li>
-          <li><%= link_to 'Reviews', reviews_path %></li>
+          <!-- <li><%= link_to 'Reviews', reviews_path %></li> -->
           <li><%= link_to 'Search for Item', start_path %></li>
           <li><%= link_to 'Top Rated items', rate_path %></li>
          <li style="margin-left: 200px;"><% if user_signed_in? %>

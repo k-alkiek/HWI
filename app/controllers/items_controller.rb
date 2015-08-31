@@ -30,23 +30,36 @@ class ItemsController < ApplicationController
   end
   @local_items = @items.sort_by(&:top_rating).reverse
   end
+
   def new
+    if current_user.role == 1
     @item = Item.new
     respond_with(@item)
+    else
+      redirect_to items_path, notice: "You cannot do this"
+    end
   end
 
   def edit
-  
+    if current_user.role == 1
+    else
+      redirect_to items_path, notice: "You cannot do this"
+    end
   end
+
     def NReview
     @review =Review.new
     respond_with(@review)
   end
 
   def create
-    @item = Item.new(item_params)
-    @item.save
-    respond_with(@item)
+    if current_user.role == 1
+      @item = Item.new(item_params)
+      @item.save
+      respond_with(@item)
+    else
+      redirect_to items_path, notice: "You cannot do this"
+    end
   end
 
   def update
@@ -55,8 +68,12 @@ class ItemsController < ApplicationController
   end
 
   def destroy
-    @item.destroy
-    respond_with(@item)
+    if current_user.role == 1
+      @item.destroy
+      respond_with(@item)
+    else
+       redirect_to items_path, notice: "You cannot do this"
+    end
   end
 
   private

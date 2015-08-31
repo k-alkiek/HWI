@@ -18,6 +18,7 @@ class CommentsController < ApplicationController
   end
 
   def edit
+     
     if current_user.role == 1 || current_user.role == 2
       
     else
@@ -26,7 +27,7 @@ class CommentsController < ApplicationController
   end
 
   def create
-    @review = Review.find(params[:review_id])
+     @review = Review.find(params[:review_id])
     @comment = @review.comments.create(comment_params)
 
     respond_to do |format|
@@ -43,23 +44,25 @@ class CommentsController < ApplicationController
 
 
   def update
+     
     @comment.update(comment_params)
-    respond_with(@comment)
+    redirect_to @review
   end
 
   def destroy
     if current_user.role == 1 || current_user.role == 2
       @comment.destroy
-      respond_with(@comment)
+      redirect_to @review
     else
       @comment = current_user.comments.find(params[:id])
       @comment.destroy
-      respond_with(@comment)
+      redirect_to @review
     end
   end
 
   private
     def set_comment
+      @review = Review.find(params[:review_id])
       @comment = Comment.find(params[:id])
     end
 

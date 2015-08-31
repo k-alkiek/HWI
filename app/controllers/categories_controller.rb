@@ -14,17 +14,29 @@ class CategoriesController < ApplicationController
   end
 
   def new
+    if current_user.role == 1
     @category = Category.new
     respond_with(@category)
+    else
+      redirect_to categories_path, notice: "You cannot do this"
+    end
   end
 
   def edit
+    if current_user.role == 1
+    else
+      redirect_to categories_path, notice: "You cannot do this"
+    end
   end
 
   def create
-    @category = Category.new(category_params)
-    @category.save
-    respond_with(@category)
+    if current_user.role == 1
+      @category = Category.new(category_params)
+      @category.save
+      respond_with(@category)
+    else
+      redirect_to categories_path, notice: "You cannot do this"
+    end
   end
 
   def update
@@ -32,9 +44,13 @@ class CategoriesController < ApplicationController
     respond_with(@category)
   end
 
-  def destroy
-    @category.destroy
-    respond_with(@category)
+ def destroy
+    if current_user.role == 1
+      @category.destroy
+      respond_with(@category)
+    else
+       redirect_to categories_path, notice: "You cannot do this"
+    end
   end
 
   private

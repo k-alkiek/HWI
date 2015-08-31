@@ -19,6 +19,11 @@
 </p>
 
 <%= link_to 'Back', items_path %>
+<% if current_user.role == 1 %>
+    | <%= link_to 'Edit', edit_item_path(@item) %> |
+    <%= link_to 'Destroy', @item, method: :delete, data: { confirm: 'Are you sure?' } %>
+<% else %>
+<% end %>
 
 <h3> Write a Review </h3> 
 <%= form_for [@item, Review.new], remote: true do |f| %>

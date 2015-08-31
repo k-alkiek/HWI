@@ -49,11 +49,11 @@ class ReviewsController < ApplicationController
   def destroy
     if current_user.role == 1
       @review.destroy
-      respond_with(@review)
+      redirect_to "/items/#{@review.item_id}"
     else
       @review = current_user.reviews.find(params[:id])
       @review.destroy
-      respond_with(@review)
+      redirect_to "/items/#{@review.item_id}"
     end
   end
 
