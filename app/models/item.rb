@@ -19,8 +19,7 @@ end
     where("name like ?", "%#{query}%") 
   end
   def self.top(query)
-   text= Category.where(name: query).first
-  where("category_id like ?", "%#{text.id}%")
+  where("category_id like ?", "%#{query}%")
 end
 end
 

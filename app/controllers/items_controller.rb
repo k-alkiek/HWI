@@ -36,7 +36,7 @@ class ItemsController < ApplicationController
   end
 
   def new
-    if current_user.role == 1 || || current_user.reviews.size >= 10
+    if current_user.role == 1 || current_user.reviews.size >= 10
     @item = Item.new
     respond_with(@item)
     else
@@ -48,7 +48,7 @@ class ItemsController < ApplicationController
   def edit
     if current_user.role == 1 
     else
-      redirect_to items_path, notice: "You cannot do this"
+      redirect_to items_path, notice: "You cannot do this. Only Admins are allowed to edit items."
     end
   end
 
