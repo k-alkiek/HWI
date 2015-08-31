@@ -23,7 +23,7 @@
     <% end %>
 
 <br>
-<% if current_user.role == 1 %>
+<% if current_user.role == 1 || current_user.reviews.size >= 10 %>
 <%= link_to 'New Item', new_item_path %>
         <% else %>
         <% end %>

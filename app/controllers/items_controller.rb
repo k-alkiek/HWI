@@ -36,16 +36,17 @@ class ItemsController < ApplicationController
   end
 
   def new
-    if current_user.role == 1
+    if current_user.role == 1 || || current_user.reviews.size >= 10
     @item = Item.new
     respond_with(@item)
     else
-      redirect_to items_path, notice: "You cannot do this"
+      needed = current_user.reviews.size - 10
+      redirect_to items_path, notice: "You must have #{needed} more reviews."
     end
   end
 
   def edit
-    if current_user.role == 1
+    if current_user.role == 1 
     else
       redirect_to items_path, notice: "You cannot do this"
     end
