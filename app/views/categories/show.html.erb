@@ -28,6 +28,11 @@
 </p>
         <%= link_to 'Show', item %>
         <%= link_to 'Write Review', item %>
+                <% if current_user.role == 1 %>
+        <li> <%= link_to 'Edit', edit_item_path(item) %></li>
+         <li> <%= link_to 'Destroy', item, method: :delete, data: { confirm: 'Are you sure?' } %></li>
+        <% else %>
+        <% end %>
 <% end %> <br/><br/>
     
 <% if current_user.role == 1 %>
