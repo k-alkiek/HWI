@@ -75,7 +75,7 @@ class ItemsController < ApplicationController
   def destroy
     if current_user.role == 1
       @item.destroy
-      respond_with(@item)
+      redirect_to items_path
     else
        redirect_to items_path, notice: "You cannot do this"
     end

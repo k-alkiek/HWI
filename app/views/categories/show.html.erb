@@ -1,11 +1,35 @@
 <h1><font size="2	"> </h1>
 <p id="notice"><%= notice %></p>
 
-<p>
-  <strong>Name:</strong>
+<p style="font-size:35px;">
+  <strong>Category:</strong>
   <%= @category.name %>
 </p>
+<hr/>
+<% @items = @category.items %>
+<% @items.each do |item| %>
+      <tr>
+       <p hidden>
+  <strong>Category:</strong>
+  <%= item.category.name %>
+</p>
 
+<p>
+  <strong>Name:</strong>
+  <%= item.name %>
+</p>
+
+<div style = "margin-left:40px;">
+  <%= item.description %>
+</div>
+<p>
+  <strong>Average Rating: </strong>
+  <%= item.average_rating %>
+</p>
+        <%= link_to 'Show', item %>
+        <%= link_to 'Write Review', item %>
+<% end %> <br/><br/>
+    
 <% if current_user.role == 1 %>
    <td> <%= link_to 'New Item', new_item_path %></td> |
 <%= link_to 'Edit', edit_category_path(@category) %> |
