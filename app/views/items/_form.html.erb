@@ -11,7 +11,7 @@
     </div>
   <% end %>
 
- <%= f.collection_select :category_id, Category.order(:name),:id,:name, include_blank: true %>
+ <%= f.collection_select :category_id, Category.order(:name),:id,:name %>
 
   <div class="field">
     <%= f.label :name %><br>

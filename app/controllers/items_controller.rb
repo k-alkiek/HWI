@@ -28,7 +28,7 @@ class ItemsController < ApplicationController
   end
  def top
     if params[:top]
-      @items = Item.top(params[:top]).order("created_at DESC")
+      @items = Item.top(params[:category_id]).order("created_at DESC")
     else
       @items = Item.order("created_at DESC")
   end
@@ -48,7 +48,7 @@ class ItemsController < ApplicationController
   def edit
     if current_user.role == 1 
     else
-      redirect_to items_path, notice: "You cannot do this. Only Admins are allowed to edit items."
+      redirect_to items_path, notice: "You cannot do this"
     end
   end
 
