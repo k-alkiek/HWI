@@ -1,4 +1,4 @@
-<h1><font size="3">Reviews</h1>
+<h1><font size="3"> Latest Reviews:</h1>
 
 
 
@@ -9,7 +9,8 @@
         <li><strong><p> About:  <%= review.item.name %> </p></strong> <br/> </li>
         <li> <%= review.body %></li>
         <br/>
-        <li><strong><p>Rate:<%= review.rating %></strong></p></li>
+        <li>Rating:<%= review.rating %></li>
+        <br/>
         <li><p>Written By:<%= review.user.email %></p></li>
         <br/>
 
@@ -27,5 +28,3 @@
 
 
 <br>
-
-<%= link_to 'New Review', new_review_path %>

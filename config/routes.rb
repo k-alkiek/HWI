@@ -17,7 +17,7 @@ Rails.application.routes.draw do
 
 devise_scope :user do
   authenticated :user do
-    root 'items#index', as: :authenticated_root
+    root 'reviews#latest', as: :authenticated_root
   end
 
   unauthenticated do
@@ -31,7 +31,7 @@ end
     get 'start' => 'items#start', as: :start
     get 'rate' => 'items#rate', as: :rate
     get 'top' => 'items#top', as: :top
-    get 'home' => 'items#home' , as: :home
+    get 'home' => 'reviews#latest' , as: :home
  
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

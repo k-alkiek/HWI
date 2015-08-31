@@ -8,6 +8,12 @@ class ReviewsController < ApplicationController
     respond_with(@reviews)
   end
 
+
+  def latest
+    @reviews = Review.all.reverse.first(10)
+    respond_with(@reviews)
+  end
+
   def show
     respond_with(@review)
   end
